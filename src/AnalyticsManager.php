@@ -31,9 +31,8 @@ final class AnalyticsManager
     public function __construct(
         private SectionCache $cache,
         private ?LoggerInterface $logger = null,
-    ) {}
-
-    
+    ) {
+    }
 
     /**
      * Summary of register
@@ -46,7 +45,6 @@ final class AnalyticsManager
 
         return $this;
     }
-
 
     /**
      * Summary of registers
@@ -61,8 +59,6 @@ final class AnalyticsManager
 
         return $this;
     }
-
-   
 
     /**
      * Load one provider. A failing section does not break the others:
@@ -126,8 +122,6 @@ final class AnalyticsManager
         return $dashboard;
     }
 
-   
-
     /**
      *   Return a copy of the manager that ignores (and refreshes) the cache.
      *   $analytics->withoutCache()->dashboard([...]);                       // everything
@@ -153,7 +147,6 @@ final class AnalyticsManager
         return $clone;
     }
 
-    
     /**
      * Forget section invaldation
      * @param string $providerKey
@@ -193,7 +186,6 @@ final class AnalyticsManager
     {
         $this->cache->flush();
     }
-
 
     /**
      * Summary of selectSections

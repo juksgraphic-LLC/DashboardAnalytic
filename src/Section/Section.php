@@ -23,7 +23,6 @@ use Juksgraphic\DashboardAnalytic\Exceptions\InvalidSectionResultException;
  */
 final class Section implements SectionInterface
 {
-
     private ?Closure $resolver = null;
 
     /** @param string[] $tags */
@@ -38,7 +37,8 @@ final class Section implements SectionInterface
         private string $id,
         private array $tags = [],
         private ?int $ttl = null,
-    ) {}
+    ) {
+    }
 
     /**
      * Summary of make
@@ -49,7 +49,6 @@ final class Section implements SectionInterface
     {
         return new self($id);
     }
-
 
     /**
      * May return StatItem|Chart|Table|AnalyticsResponse or an array of these.
@@ -62,7 +61,7 @@ final class Section implements SectionInterface
 
         return $clone;
     }
-    
+
     /**
      * Summary of id
      * @return string
@@ -71,7 +70,6 @@ final class Section implements SectionInterface
     {
         return $this->id;
     }
-
 
     /**
      * Summary of withTags
@@ -145,7 +143,7 @@ final class Section implements SectionInterface
             $result instanceof Table => new AnalyticsResponse(tables: [$result]),
             is_array($result) => array_reduce(
                 $result,
-                fn(AnalyticsResponse $carry, mixed $item) => $carry->merge($this->normalize($item)),
+                fn (AnalyticsResponse $carry, mixed $item) => $carry->merge($this->normalize($item)),
                 new AnalyticsResponse(),
             ),
             default => throw InvalidSectionResultException::invalidType($this->id, $result),

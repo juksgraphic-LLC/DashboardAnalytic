@@ -17,7 +17,8 @@ final readonly class Table implements JsonSerializable
         public string $id,
         public array $columns,
         public array $rows,
-    ) {}
+    ) {
+    }
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
@@ -25,7 +26,7 @@ final readonly class Table implements JsonSerializable
         return new self(
             id:      $data['id'],
             columns: $data['columns'] ?? [],
-            rows:    $data['rows']    ?? [],
+            rows:    $data['rows'] ?? [],
         );
     }
 

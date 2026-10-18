@@ -21,7 +21,8 @@ final readonly class Chart implements JsonSerializable
         public array $labels,
         public array $datasets,
         public array $options = [],
-    ) {}
+    ) {
+    }
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
@@ -29,9 +30,9 @@ final readonly class Chart implements JsonSerializable
         return new self(
             id:       $data['id'],
             type:     $data['type'],
-            labels:   $data['labels']   ?? [],
+            labels:   $data['labels'] ?? [],
             datasets: $data['datasets'] ?? [],
-            options:  $data['options']  ?? [],
+            options:  $data['options'] ?? [],
         );
     }
 
@@ -39,11 +40,11 @@ final readonly class Chart implements JsonSerializable
     public function toArray(): array
     {
         return [
-            'id'       => $this->id,
-            'type'     => $this->type,
-            'labels'   => $this->labels,
+            'id' => $this->id,
+            'type' => $this->type,
+            'labels' => $this->labels,
             'datasets' => $this->datasets,
-            'options'  => $this->options,
+            'options' => $this->options,
         ];
     }
 

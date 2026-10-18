@@ -21,16 +21,17 @@ final readonly class AnalyticsQuery
         public array $filters = [],
         public ?int $limit = null,
         public array $options = [],
-    ) {}
+    ) {
+    }
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            from:    $data['from']    ?? null,
-            to:      $data['to']      ?? null,
+            from:    $data['from'] ?? null,
+            to:      $data['to'] ?? null,
             filters: $data['filters'] ?? [],
-            limit:   $data['limit']   ?? null,
+            limit:   $data['limit'] ?? null,
             options: $data['options'] ?? [],
         );
     }
@@ -49,7 +50,6 @@ final readonly class AnalyticsQuery
             'options' => $this->options,
         ];
     }
-
 
     /**
      * Stable hash, independent of array key order. Safe to use in cache keys.

@@ -26,7 +26,8 @@ final readonly class StatItem implements JsonSerializable
         public ?string $format = null,
         public ?string $icon = null,
         public array $meta = [],
-    ) {}
+    ) {
+    }
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self

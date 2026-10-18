@@ -27,18 +27,18 @@ final class DemoShopProvider extends AbstractProvider
             $this->section('kpis')
                 ->withTags(['orders', 'products'])
                 ->withTtl(300)
-                ->using(fn(AnalyticsQuery $q) => $this->kpis()),
+                ->using(fn (AnalyticsQuery $q) => $this->kpis()),
 
             // Or a single widget
             $this->section('orders_chart')
                 ->withTags(['orders'])
                 ->withTtl(600)
-                ->using(fn(AnalyticsQuery $q) => $this->ordersChart()),
+                ->using(fn (AnalyticsQuery $q) => $this->ordersChart()),
 
             $this->section('top_products')
                 ->withTags(['products'])
                 ->withTtl(3600)
-                ->using(fn(AnalyticsQuery $q) => $this->topProducts($q->limit ?? 5)),
+                ->using(fn (AnalyticsQuery $q) => $this->topProducts($q->limit ?? 5)),
         ];
     }
 

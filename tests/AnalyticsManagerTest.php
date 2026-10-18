@@ -22,9 +22,10 @@ function newCounter(): stdClass
 
 function shopProvider(stdClass $counter): ProviderInterface
 {
-    return new class($counter) implements ProviderInterface {
-        
-        public function __construct(private stdClass $counter) {}
+    return new class ($counter) implements ProviderInterface {
+        public function __construct(private stdClass $counter)
+        {
+        }
 
         public function key(): string
         {
@@ -115,20 +116,22 @@ it('loads only the requested sections', function () {
 });
 
 it('isolates a failing section', function () {
-    $provider = new class implements ProviderInterface {
+    $provider = new class () implements ProviderInterface {
         public function key(): string
         {
             return 'broken';
         }
+
         public function available(): bool
         {
             return true;
         }
+
         public function sections(): array
         {
             return [
-                Section::make('bad')->using(fn() => throw new RuntimeException('boom')),
-                Section::make('good')->using(fn() => new Chart('ok', 'bar', [], [])),
+                Section::make('bad')->using(fn () => throw new RuntimeException('boom')),
+                Section::make('good')->using(fn () => new Chart('ok', 'bar', [], [])),
             ];
         }
     };

@@ -17,11 +17,12 @@ function providerTestManager(): AnalyticsManager
 }
 
 it('is available by default when extending AbstractProvider', function () {
-    $provider = new class extends AbstractProvider {
+    $provider = new class () extends AbstractProvider {
         public function key(): string
         {
             return 'x';
         }
+
         public function sections(): array
         {
             return [];
@@ -32,15 +33,17 @@ it('is available by default when extending AbstractProvider', function () {
 });
 
 it('lets a subclass override availability', function () {
-    $provider = new class extends AbstractProvider {
+    $provider = new class () extends AbstractProvider {
         public function key(): string
         {
             return 'x';
         }
+
         public function available(): bool
         {
             return false;
         }
+
         public function sections(): array
         {
             return [];
@@ -54,7 +57,7 @@ it('lets a subclass override availability', function () {
 
 it('builds a provider from callables', function () {
     $provider = new CallableProvider('quick', [
-        Section::make('c')->using(fn() => new Chart('c', 'bar', [], [])),
+        Section::make('c')->using(fn () => new Chart('c', 'bar', [], [])),
     ]);
 
     $response = providerTestManager()->register($provider)->get('quick');
@@ -64,7 +67,7 @@ it('builds a provider from callables', function () {
 });
 
 it('respects the availability callback of CallableProvider', function () {
-    $provider = new CallableProvider('quick', [], available: fn() => false);
+    $provider = new CallableProvider('quick', [], available: fn () => false);
 
     expect($provider->available())->toBeFalse();
 });

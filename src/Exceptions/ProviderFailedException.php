@@ -8,7 +8,6 @@ use Throwable;
 
 final class ProviderFailedException extends AnalyticsException
 {
-
     /**
      * Summary of forKey
      * @param string $key

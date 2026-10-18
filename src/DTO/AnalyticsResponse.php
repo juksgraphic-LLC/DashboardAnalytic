@@ -22,7 +22,8 @@ final readonly class AnalyticsResponse implements JsonSerializable
         public array $charts = [],
         public array $tables = [],
         public array $errors = [],
-    ) {}
+    ) {
+    }
 
     /**
      * Summary of withErrorOnly
@@ -94,7 +95,6 @@ final readonly class AnalyticsResponse implements JsonSerializable
         );
     }
 
-
     /**
      * Summary of toArray
      * @return array{charts: array, errors: string[], stats: array, tables: array}
@@ -102,13 +102,12 @@ final readonly class AnalyticsResponse implements JsonSerializable
     public function toArray(): array
     {
         return [
-            'stats'  => array_map(static  fn(StatItem $i) => $i->toArray(), $this->stats),
-            'charts' => array_map(static fn(Chart $i)    => $i->toArray(), $this->charts),
-            'tables' => array_map(static fn(Table $i)    => $i->toArray(), $this->tables),
+            'stats' => array_map(static fn (StatItem $i) => $i->toArray(), $this->stats),
+            'charts' => array_map(static fn (Chart $i) => $i->toArray(), $this->charts),
+            'tables' => array_map(static fn (Table $i) => $i->toArray(), $this->tables),
             'errors' => $this->errors,
         ];
     }
-
 
     /**
      * Summary of jsonSerialize

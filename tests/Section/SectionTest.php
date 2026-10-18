@@ -23,8 +23,8 @@ it('throws on an unsupported return type', function (mixed $value) {
         ->load(new AnalyticsQuery());
 })->throws(InvalidSectionResultException::class, 'unsupported type')->with([
     'string' => ['nope'],
-    'int'    => [42],
-    'null'   => [null],
+    'int' => [42],
+    'null' => [null],
     'object' => [new stdClass()],
 ]);
 

@@ -18,7 +18,6 @@ use Symfony\Contracts\Cache\TagAwareCacheInterface;
  */
 final class SectionCache
 {
-
     /**
      * Increment when the DTO structure changes, to ignore old cache entries.
      * @var string
@@ -31,7 +30,6 @@ final class SectionCache
      */
     private const GLOBAL_TAG = 'analytics';
 
-
     /**
      * Summary of __construct
      * @param TagAwareCacheInterface $cache
@@ -40,7 +38,8 @@ final class SectionCache
     public function __construct(
         private TagAwareCacheInterface $cache,
         private int $defaultTtl = 3600,
-    ) {}
+    ) {
+    }
 
     /**
      * Return the cached section, or compute and store it.
@@ -53,7 +52,6 @@ final class SectionCache
         SectionInterface $section,
         AnalyticsQuery $query,
         bool $fresh = false,
-
     ): AnalyticsResponse {
 
         $key = $this->cacheKey($providerKey, $section->id(), $query);
@@ -114,8 +112,6 @@ final class SectionCache
     {
         $this->cache->invalidateTags([self::GLOBAL_TAG]);
     }
-
-
 
     /**
      * Summary of tagsFor

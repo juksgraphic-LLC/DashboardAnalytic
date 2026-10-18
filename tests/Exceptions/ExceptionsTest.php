@@ -42,7 +42,7 @@ it('describes the unsupported type in the message', function (mixed $value, stri
         ->and($e->getMessage())->toContain("[{$type}]");
 })->with([
     'string' => ['hello', 'string'],
-    'int'    => [42, 'int'],
-    'null'   => [null, 'null'],
+    'int' => [42, 'int'],
+    'null' => [null, 'null'],
     'object' => [new stdClass(), 'stdClass'],
 ]);

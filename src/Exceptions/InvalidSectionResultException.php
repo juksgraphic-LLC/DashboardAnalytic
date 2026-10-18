@@ -7,7 +7,7 @@ namespace Juksgraphic\DashboardAnalytic\Exceptions;
 final class InvalidSectionResultException extends AnalyticsException
 {
     /**
-     * No Resolver for section 
+     * No Resolver for section
      * @param string $sectionId
      * @return InvalidSectionResultException
      */

@@ -9,4 +9,6 @@ use RuntimeException;
 /**
  * Base exception of the package. Catch this to catch everything.
  */
-class AnalyticsException extends RuntimeException {}
+class AnalyticsException extends RuntimeException
+{
+}
