@@ -20,7 +20,7 @@
         "symfony/cache-contracts": "^3.4"
     },
     "require-dev": {
-        "pestphp/pest": "^4.0",
+        "pestphp/pest": "^5.3",
         "friendsofphp/php-cs-fixer": "^3.21.1",
         "spatie/ray": "^1.28"
     },
