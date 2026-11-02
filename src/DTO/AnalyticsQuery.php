@@ -38,7 +38,14 @@ final readonly class AnalyticsQuery
 
     /**
      * Summary of toArray
-     * @return array{filters: array, from: string|null, limit: int|null, options: array, to: string|null}
+     * @return array
+     * {
+     *  filters: array,
+     *  from: string|null,
+     *  limit: int|null,
+     *  options: array,
+     *  to: string|null
+     *  }
      */
     public function toArray(): array
     {
